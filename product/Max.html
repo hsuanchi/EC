@@ -266,7 +266,7 @@
 
 
     <script type="text/javascript">
-        async function loadProducts() {
+        (async function loadProducts() {
             const response = await fetch('/json/product.json');
             const products = await response.json();
             const productsContainer = document.querySelector('.products .row');
@@ -291,7 +291,7 @@
                 card.innerHTML = cardHtml;
                 productsContainer.appendChild(card);
             });
-        }
+        })()
     </script>
 
 
@@ -324,13 +324,6 @@
     <script src="/js/utils.js"> </script>
     <script src="/js/nav.js"> </script>
     <script src="/js/main.js"> </script>
-    <script>
-        (function () {
-            loadProducts()
-            checkLoginStatus();
-            setGtmConfigFromCookie();
-        })();
-    </script>
     <script>
         const productNames = document.querySelectorAll('.productName');
         for (let i = 0; i < productNames.length; i++) {

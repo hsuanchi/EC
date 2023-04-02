@@ -1,4 +1,5 @@
-function checkLoginStatus() {
+// nav 相關設定
+(function () {
   var navbarText = document.getElementById("navbarText");
   var email = getCookie("email");
   if (email === "") {
@@ -32,21 +33,20 @@ function checkLoginStatus() {
           </li>
         </ul>
       `;
-  }
-}
 
-function setGtmConfigFromCookie() {
-  // 從 cookie 中獲取 gtmId
-  const gtmId = document.cookie.replace(/(?:(?:^|.*;\s*)gtmId\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    // 從 cookie 中獲取 gtmId
+    const gtmId = document.cookie.replace(/(?:(?:^|.*;\s*)gtmId\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
-  // 如果找到了 gtmId，就將其設置為 gtmConfig 輸入欄位的值
-  if (gtmId) {
-    const gtmConfigInput = document.getElementById("gtmConfig");
-    if (gtmConfigInput) {
-      gtmConfigInput.value = gtmId;
+    // 如果找到了 gtmId，就將其設置為 gtmConfig 輸入欄位的值
+    if (gtmId) {
+      const gtmConfigInput = document.getElementById("gtmConfig");
+      if (gtmConfigInput) {
+        gtmConfigInput.value = gtmId;
+      }
     }
   }
-}
+})()
+
 
 function gtmSetting(event) {
 

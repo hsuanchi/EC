@@ -292,47 +292,105 @@
         </div>
     </footer>
 
-    <script type="text/javascript">
-        async function loadProducts() {
-            const response = await fetch('/json/product.json');
-            const products = await response.json();
-            const productsContainer = document.querySelector('.products .row');
-
-            const carouselInner = document.querySelector(".carousel-inner");
-
-            products.forEach(product => {
-                const card = document.createElement('div');
-                card.classList.add('col-md-4', 'mt-3');
-
-                const cardHtml = `
-                        <div class="card mb-3">
-                        <img class="card-img-top" src="${product.image}" alt="${product.name}">
-                        <div class="card-body">
-                            <h3 class="card-title">${product.name}</h3>
-                            ${product.tags.map(tag => `<span class="badge badge-secondary">${tag}</span>`).join(' ')}
-                            <p class="card-text">Price: ${product.price}</p>
-                            <a href="/product/${product.name}" onclick="sendProductClickDataLayer(${product.price},'${product.id}','${product.name}','首頁')" class="btn btn-outline-secondary btn-sm mt-1">Show detail</a>
-                        </div>
-                        </div>
-                    `;
-                card.innerHTML = cardHtml;
-                productsContainer.appendChild(card);
-            });
-        }
-    </script>
-
     <script src="/js/utils.js"> </script>
     <script src="/js/nav.js"> </script>
     <script src="/js/main.js"> </script>
-    <script src="/js/cart.js"> </script>
-    <script>
-        (function () {
-            checkLoginStatus();
-            setGtmConfigFromCookie();
-            renderSuccessTable();
-        })();
+    <script type="text/javascript">
+        (function renderSuccessTable() {
+            const cart = JSON.parse(getCookie('cart') || '[]');
 
-        function addTransactionId() {
+            const tbody = document.querySelector('.table tbody');
+            tbody.innerHTML = '';
+
+            let subtotal = 0;
+
+            for (let i = 0; i < cart.length; i++) {
+                const {
+                    name,
+                    price,
+                    quantity,
+                    image,
+                    id
+                } = cart[i];
+                console.log(name, price, quantity, image, id)
+
+                const tr = document.createElement('tr');
+
+                const imgTd = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = image;
+                img.width = 40;
+                img.height = 40;
+                imgTd.appendChild(img);
+                tr.appendChild(imgTd);
+
+                const idTd = document.createElement('td');
+                idTd.classList.add('text-center');
+                idTd.textContent = id;
+                tr.appendChild(idTd);
+
+                const nameTd = document.createElement('td');
+                nameTd.classList.add('text-center');
+                nameTd.textContent = name;
+                tr.appendChild(nameTd);
+
+                const availTd = document.createElement('td');
+                availTd.classList.add('text-center');
+                availTd.textContent = 'In stock';
+                tr.appendChild(availTd);
+
+                const qtyTd = document.createElement('td');
+                qtyTd.classList.add('text-center');
+                qtyTd.textContent = quantity;
+                tr.appendChild(qtyTd);
+
+                price_str = price.toString().replace(/(?!^)(?=(\d{3})+($|\.))/g, ",");
+                const priceTd = document.createElement('td');
+                priceTd.classList.add('number', 'text-center');
+                priceTd.textContent = price_str;
+                tr.appendChild(priceTd);
+
+                tbody.appendChild(tr);
+
+                subtotal += price * quantity;
+                console.log(subtotal)
+            }
+
+            subtotal_str = subtotal.toString().replace(/(?!^)(?=(\d{3})+($|\.))/g, ",");
+            const subTotalRow = document.createElement('tr');
+            subTotalRow.innerHTML = `
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Sub-Total (NTD)</td>
+              <td class="number text-center">${subtotal_str}</td>
+            `;
+            tbody.appendChild(subTotalRow);
+
+            const shippingRow = document.createElement('tr');
+            shippingRow.innerHTML = `
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Shipping (NTD)</td>
+              <td class="text-center">0</td>
+            `;
+            tbody.appendChild(shippingRow);
+
+            const totalRow = document.createElement('tr');
+            totalRow.innerHTML = `
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><strong>Total (NTD)</strong></td>
+              <td class="number text-center"><strong>${subtotal_str}</strong></td>
+            `;
+            tbody.appendChild(totalRow);
+        })()
+        (function addTransactionId() {
             // 從 cookie 中讀取 tid
             const tid = JSON.parse(getCookie('tid') || '[]');
             console.log(tid)
@@ -348,8 +406,7 @@
                 document.cookie = 'cart=; expires=' + new Date().toUTCString() + '; path=/';
                 console.log('done')
             }
-        }
-        addTransactionId()
+        })()
     </script>
 
     <script type="text/javascript">
