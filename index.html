@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.ico" />
+    <title>MaxLab</title>
+
+    <!-- Google Tag Manager -->
+    <script>
+        const gtmId = document.cookie.replace(/(?:(?:^|.*;\s*)gtmId\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        const regex = /^[a-zA-Z0-9\-]{1,12}$/; // 驗證字元和長度
+
+        // 設置使用者 GTM ID
+        if (regex.test(gtmId) && gtmId.startsWith('GTM-') && gtmId != 'GTM-K2RGDH9') {
+            console.log(`valid GTM ID: ${gtmId}`);
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', gtmId);
+        }
+
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K2RGDH9');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146071245-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-179293716-1');
+        gtag('config', 'G-HNQE8NLGMY');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:black" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- bootstrap.css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- jquery.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+
+
+</head>
+
+<body>
+
+    <!-- sweetalert.js -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h1><a class="navbar-brand setfont" href="/">MaxLab</a></h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        </div>
+    </nav>
+
+    <!-- gtmModal -->
+    <div class="modal fade" id="gtmModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form onsubmit="gtmSetting(event)" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">GTM Setting</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">輸入你的 GTM</label>
+                        <input type="" id="gtmConfig" class="form-control" placeholder="" aria-describedby="helpId"
+                            maxlength="11" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form onsubmit="login(event)" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder=""
+                            aria-describedby="helpId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder=""
+                            aria-describedby="helpId" minlength="6" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- signUpModal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form onsubmit="signUp(event)" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" id="signUpEmail" class="form-control" placeholder=""
+                            aria-describedby="helpId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" id="signUpPassword" class="form-control" placeholder=""
+                            aria-describedby="helpId" minlength="6" required>
+                        <small id="helpId" class="text-muted">minlength 6</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container carousel">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="3">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="4">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="5">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="6">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="7">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="8">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="9">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="10">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="11">
+                        </li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="12">
+                        </li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="/">
+                                <img src="https://picsum.photos/id/1033/1200/600" class="d-block w-100"
+                                    alt="New To Sale">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>New To Sale</h3>
+                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container header">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <header>
+                        <div class="modal-header">
+                            <h3 class="text-danger">新品推薦</h3>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+        <div class="container products pb-5">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row pt-5 pb-4">
+                <div class="col-6 col-md" style="text-align:center;">
+                    <h3 class="setfont">About</h3>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="/">Made with ☕ by Max</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md" style="text-align:center;">
+                    <h3 class="setfont">Explore</h3>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" target="_blank" href="https://maxlist.xyz/">Blog</a></li>
+                        <li><a class="text-muted" target="_blank"
+                                href="https://www.facebook.com/profile.php?id=100002148309560">Facebook</a></li>
+                        <li><a class="text-muted" target="_blank" href="https://github.com/hsuanchi">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md" style="text-align:center;">
+                    <img class="mb-2" src="/img/max.png" alt="max_icon" width="24" height="24">
+                    <small class="d-block mb-3 text-muted">© since 2018</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        async function loadProducts() {
+            const response = await fetch('/json/product.json');
+            const products = await response.json();
+            const productsContainer = document.querySelector('.products .row');
+
+            const carouselInner = document.querySelector(".carousel-inner");
+
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-4', 'mt-3');
+
+                const cardHtml = `
+                        <div class="card mb-3">
+                        <img class="card-img-top" src="${product.image}" alt="${product.name}">
+                        <div class="card-body">
+                            <h3 class="card-title">${product.name}</h3>
+                            ${product.tags.map(tag => `<span class="badge badge-secondary">${tag}</span>`).join(' ')}
+                            <p class="card-text">Price: ${product.price}</p>
+                            <a href="/product/${product.name}" onclick="sendProductClickDataLayer(${product.price},'${product.id}','${product.name}','首頁')" class="btn btn-outline-secondary btn-sm mt-1">Show detail</a>
+                        </div>
+                        </div>
+                    `;
+                card.innerHTML = cardHtml;
+                productsContainer.appendChild(card);
+            });
+
+            products.forEach((product, index) => {
+                const cardHtml = `
+                        <div class="carousel-item">
+                            <a href="/product/${product.name}">
+                            <img src="${product.image}" class="d-block w-100" alt="${product.name}">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>${product.name}</h3>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
+                            </a>
+                        </div>
+                        `;
+                carouselInner.insertAdjacentHTML("beforeend", cardHtml);
+            });
+        }
+    </script>
+
+    <script src="/js/utils.js"> </script>
+    <script src="/js/nav.js"> </script>
+    <script src="/js/main.js"> </script>
+    <script>
+        (function () {
+            loadProducts()
+            checkLoginStatus();
+            setGtmConfigFromCookie();
+        })();
+    </script>
+
+
+    <!-- bootstrap.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <!-- 使用axios.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
+
+    <script>
+        function sendProductClickDataLayer(price, id, name, page) {
+            // Product Click
+            dataLayer.push({
+                'ecommerce': {
+                    'click': {
+                        'products': [{
+                            'id': id,
+                            'name': name,
+                            'category': '-',
+                            'price': price,
+                            'brand': 'TuringDigital',
+                            'variant': '-',
+                            'position': '1',
+                            'list': page
+                        }]
+                    }
+                },
+                'event': 'td_productClick'
+            });
+
+            gtag('event', 'select_content', {
+                "content_type": "product",
+                "items": [{
+                    "id": id,
+                    "name": name,
+                    "list_name": "Search Results",
+                    "brand": "TuringDigital",
+                    "category": "產品類別",
+                    "variant": "範例規格",
+                    "list_position": 1,
+                    "quantity": 1,
+                    "price": String(price)
+                }]
+            });
+            console.log('[productClick_dataLayer]:', dataLayer)
+        }
+
+        function sendAddToCarDataLayer(id, name, price, quantity) {
+            // Add To Cart
+            dataLayer.push({
+                'addToCart': {
+                    'products': [{
+                        'id': id,
+                        'name': name,
+                        'category': '-',
+                        'price': parseInt(price),
+                        'brand': 'TuringDigital',
+                        'variant': '-',
+                        'quantity': parseInt(quantity),
+                    }]
+                },
+                'event': 'td_AddToCart'
+            });
+
+            gtag('event', 'add_to_cart', {
+                "items": [{
+                    "id": id,
+                    "name": name,
+                    "list_name": "list_name ProductAddtoCart",
+                    "brand": "TuringDigital",
+                    "category": "新品推薦",
+                    "variant": "範例規格",
+                    "list_position": 1,
+                    "quantity": parseInt(quantity),
+                    "price": String(price)
+                }]
+            });
+            console.log('[addToCart_dataLayer]:', dataLayer)
+        }
+
+        function sendremoveCarDataLayer(id, name, price, quantity) {
+            // remove To Cart
+            dataLayer.push({
+                'remove': {
+                    'products': [{
+                        'id': id,
+                        'name': name,
+                        'category': '-',
+                        'price': parseInt(price),
+                        'brand': 'TuringDigital',
+                        'variant': '-',
+                        'quantity': parseInt(quantity)
+                    }]
+                },
+                'event': 'td_removeFromCart'
+            });
+            gtag('event', 'remove_from_cart', {
+                "items": [{
+                    "id": id,
+                    "name": name,
+                    "list_name": "範例類別",
+                    "brand": "TuringDigital",
+                    "category": "範例類別",
+                    "variant": "範例規格",
+                    "list_position": 1,
+                    "quantity": parseInt(quantity),
+                    "price": String(price)
+                }]
+            });
+            console.log('[remove_dataLayer]:', dataLayer)
+        }
+    </script>
+</body>
+
+</html>

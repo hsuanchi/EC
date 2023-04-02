@@ -1,0 +1,37 @@
+h1 {
+  font-size: 1.85rem;
+  margin-bottom: 0.4375rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.4375rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.4375rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4375rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 0.4375rem;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Heiti TC",
+    "Microsoft JhengHei", sans-serif;
+}
+
+footer {
+  background-color: #f8f9fa;
+}
+
+.setfont {
+  font-family: Montserrat, sans-serif;
+}
