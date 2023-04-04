@@ -298,7 +298,7 @@
                 card.innerHTML = cardHtml;
                 productsContainer.appendChild(card);
             });
-        })()
+        })();
         // Cart Table
         (function renderCartTable() {
             const cart = JSON.parse(getCookie('cart') || '[]');
@@ -411,7 +411,7 @@
               <td class="number text-right"><strong>${subtotal_str}</strong></td>
             `;
             tbody.appendChild(totalRow);
-        })()
+        })();
     </script>
 
 

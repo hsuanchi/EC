@@ -13,7 +13,8 @@
 
 - [ ] op footer
 
-[Google Document](https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#view_item_list)
+* [Google Document](https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#view_item_list)
+* [Google EC](https://enhancedecommerce.appspot.com/#!GA-homepage-f6be8-2:ga4Gtm)
 
 - add_payment_info
 - add_shipping_info
