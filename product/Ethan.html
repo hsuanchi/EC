@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/png" href="/img/favicon.ico" />
-    <title>Cart</title>
+    <title class="productName"></title>
 
     <!-- Google Tag Manager -->
     <script>
@@ -48,6 +48,7 @@
         })(window, document, 'script', 'dataLayer', 'GTM-K2RGDH9');
     </script>
 
+    <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:black" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -63,6 +64,15 @@
     </script>
 
     <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <script>
+        const data = {
+            "id": "A006",
+            "name": "Ethan",
+            "image": "https://picsum.photos/id/1033/1200/600",
+            "price": 4444,
+            "tags": ["可客製", "免運費", "獨家販售"]
+        }
+    </script>
 </head>
 
 <body>
@@ -78,6 +88,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
         </div>
     </nav>
+
 
     <!-- gtmModal -->
     <div class="modal fade" id="gtmModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -125,7 +136,6 @@
                         <label for="">Password</label>
                         <input type="password" id="loginPassword" class="form-control" placeholder=""
                             aria-describedby="helpId" minlength="6" required>
-                        <!-- <small id="helpId" class="text-muted">minlength 6</small> -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -168,72 +178,85 @@
         </div>
     </div>
 
-    <div class="header">
+
+    <div class="header crumbs">
         <header class="jumbotron text-left">
             <div class="container">
-                <h2 class="jumbotron-heading">E-COMMERCE CART</h2>
+                <h2 class="jumbotron-heading">Product</h2>
             </div>
         </header>
     </div>
-    <div class="container mb-4">
+    <div class="container product">
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-11">
                 <header>
                     <div class="modal-header">
-                        <h5><a class="text-danger">確認購物車</a> >
-                            <a class="text-secondary">付款與運送方式</a> >
-                            <a class="text-secondary">結帳完成</a>
+                        <h5><a class="text-dark" href="/">Home</a> >
+                            <a class="text-muted productName"></a>
                         </h5>
                     </div>
                 </header>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="text-center"> </th>
-                                <th scope="col" class="text-center">ID</th>
-                                <th scope="col" class="text-center">Product</th>
-                                <th scope="col" class="text-center">Available</th>
-                                <th scope="col" class="text-center">Quantity</th>
-                                <th scope="col" class="text-center">Price</th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col mb-2">
-                <div class="row">
-                    <div class="col-sm-12  col-md-9">
+                <div class="productView">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 product_img">
+                                <img src="" class="card-img-top productImage">
+                            </div>
+                            <div class="col-md-6 product_content">
+                                <h2><span class="productName"></span></h2>
+
+                                <span class="badge badge-secondary">客製化</span>
+
+                                <span class="badge badge-secondary">免運費</span>
+
+                                <span class="badge badge-secondary">獨家販售</span>
+
+                                <p class="mt-3 mb-3">
+                                    Lorem Ipsum is simply text of the printing and typesetting industry. Ipsum
+                                    has
+                                    been
+                                    the industry's standard text ever since the 1500s, when an unknown printer took a
+                                    galley
+                                    of type and scrambled it to make a type specimen book.Lorem Ipsum is simply text of
+                                    the
+                                    printing and typesetting industry.
+                                </p>
+                                <p> 數量
+                                    <select id="quantity" class="col-md-3 ml-1 mt-1 mb-1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </p>
+                                <p class="mt-2 mb-2 productPrice" style="font-size:1.25rem"></p>
+                                <div class="btn-ground">
+                                    <button type="button" class="addToCart btn btn-warning">加入購物車</button>
+                                    <button type="button" class="checkout btn btn-danger ml-1"> 立即結帳</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 text-right">
-                        <a href="/payment" class="btn btn-lg btn-block btn-danger text-uppercase">Next</a>
-                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="productRecommend">
-            <div class="modal-header">
-                <h5>湊免運</h5>
-            </div>
-            <div class="container products pb-5">
-                <div class="row">
+                <div class="productRecommend">
+                    <div class="modal-header mt-3">
+                        <h5>推薦商品</h5>
+                    </div>
+                    <div class="container products pb-5">
+                        <div class="row">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+
     <footer>
     </footer>
-    <script src="/js/utils.js"> </script>
-    <script src="/js/nav.js"> </script>
-    <script src="/js/main.js"> </script>
-    <script src="/js/tracking.js"> </script>
-    <script src="/js/footer.js"> </script>
+
     <script type="text/javascript">
-        //Product Recommend
         (async function loadProducts() {
             const response = await fetch('/json/product.json');
             const products = await response.json();
@@ -259,120 +282,61 @@
                 card.innerHTML = cardHtml;
                 productsContainer.appendChild(card);
             });
-        })();
-        // Cart Table
-        (function renderCartTable() {
-            const cart = JSON.parse(getCookie('cart') || '[]');
+        })()
+    </script>
 
-            const tbody = document.querySelector('.table tbody');
-            tbody.innerHTML = '';
+    <script src="/js/utils.js"> </script>
+    <script src="/js/nav.js"> </script>
+    <script src="/js/main.js"> </script>
+    <script src="/js/footer.js"> </script>
+    <script src="/js/tracking.js"> </script>
+    <script>
+        const productNames = document.querySelectorAll('.productName');
+        for (let i = 0; i < productNames.length; i++) {
+            productNames[i].textContent = data.name;
+        }
+        document.querySelector('.productPrice').textContent = "$ " + data.price;
+        document.querySelector('.productImage').src = data.image;
+    </script>
 
-            let subtotal = 0;
-
-            for (let i = 0; i < cart.length; i++) {
-                const {
-                    name,
-                    price,
-                    quantity,
-                    image,
-                    id,
-                } = cart[i];
-                console.log(name, price, quantity, image, id)
-
-                const tr = document.createElement('tr');
-
-                const imgTd = document.createElement('td');
-                const img = document.createElement('img');
-                img.src = image;
-                img.width = 40;
-                img.height = 40;
-                imgTd.appendChild(img);
-                tr.appendChild(imgTd);
-
-                const idTd = document.createElement('td');
-                // idTd.style.display = 'none';
-                idTd.classList.add('text-center');
-                idTd.textContent = id;
-                tr.appendChild(idTd);
-
-                const nameTd = document.createElement('td');
-                nameTd.classList.add('text-center');
-                nameTd.textContent = name;
-                tr.appendChild(nameTd);
-
-                const availTd = document.createElement('td');
-                availTd.classList.add('text-center');
-                availTd.textContent = 'In stock';
-                tr.appendChild(availTd);
-
-                const qtyTd = document.createElement('td');
-                qtyTd.classList.add('text-center');
-                qtyTd.textContent = quantity;
-                tr.appendChild(qtyTd);
-
-                price_str = price.toString().replace(/(?!^)(?=(\d{3})+($|\.))/g, ",");
-                const priceTd = document.createElement('td');
-                priceTd.classList.add('number', 'text-center');
-                priceTd.textContent = price_str;
-                tr.appendChild(priceTd);
-
-                const removeTd = document.createElement('td');
-                removeTd.classList.add('text-right');
-                const removeBtn = document.createElement('button');
-                removeBtn.classList.add('remove', 'btn', 'btn-sm', 'btn-danger');
-                removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
-                removeBtn.addEventListener('click', () => {
-                    removeCartItem(name);
-                    renderCartTable();
-                });
-                removeTd.appendChild(removeBtn);
-                tr.appendChild(removeTd);
-
-
-
-                tbody.appendChild(tr);
-
-                subtotal += price * quantity;
-                console.log(subtotal)
+    <script>
+        // 購物車按鈕
+        $('.addToCart').on('click', function () {
+            email = getCookie("email");
+            if (email) {
+                addToCart(data['name'], data['price'], $('#quantity').val(), data['image'], data['id'])
+                sendAddToCarDataLayer(data['id'], data['name'], data['price'], $('#quantity').val())
+                Swal.fire({
+                    title: '加入購物車',
+                    text: 'success',
+                    type: 'success',
+                    onClose: () => {
+                        location.reload()
+                    }
+                })
+            } else {
+                $('#loginModal').modal()
+                console.log('please login')
             }
-
-            subtotal_str = subtotal.toString().replace(/(?!^)(?=(\d{3})+($|\.))/g, ",");
-            const subTotalRow = document.createElement('tr');
-            subTotalRow.innerHTML = `
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Sub-Total (NTD)</td>
-              <td class="number text-right">${subtotal_str}</td>
-            `;
-            tbody.appendChild(subTotalRow);
-
-            const shippingRow = document.createElement('tr');
-            shippingRow.innerHTML = `
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Shipping (NTD)</td>
-              <td class="text-right">0</td>
-            `;
-            tbody.appendChild(shippingRow);
-
-            const totalRow = document.createElement('tr');
-            totalRow.innerHTML = `
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><strong>Total (NTD)</strong></td>
-              <td class="number text-right"><strong>${subtotal_str}</strong></td>
-            `;
-            tbody.appendChild(totalRow);
-        })();
+        })
+        $('.checkout').on('click', function () {
+            email = getCookie("email");
+            if (email) {
+                addToCart(data['name'], data['price'], $('#quantity').val(), data['image'], data['id'])
+                sendAddToCarDataLayer(data['id'], data['name'], data['price'], $('#quantity').val())
+                Swal.fire({
+                    title: '加入購物車',
+                    text: 'success',
+                    type: 'success',
+                    onClose: () => {
+                        location.href = '/cart'
+                    }
+                })
+            } else {
+                $('#loginModal').modal()
+                console.log('please login')
+            }
+        })
     </script>
 
     <!-- bootstrap.js -->

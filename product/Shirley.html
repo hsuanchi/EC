@@ -200,7 +200,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6 product_img">
-                                <img src="https://picsum.photos/id/1049/1200/600" class="card-img-top productImage">
+                                <img src="" class="card-img-top productImage">
                             </div>
                             <div class="col-md-6 product_content">
                                 <h2><span class="productName"></span></h2>
@@ -254,29 +254,6 @@
 
 
     <footer>
-        <div class="container">
-            <div class="row pt-5 pb-4">
-                <div class="col-6 col-md" style="text-align:center;">
-                    <h3 class="setfont">About</h3>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="/">Made with ☕ by Max</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md" style="text-align:center;">
-                    <h3 class="setfont">Explore</h3>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" target="_blank" href="https://maxlist.xyz/">Blog</a></li>
-                        <li><a class="text-muted" target="_blank"
-                                href="https://www.facebook.com/profile.php?id=100002148309560">Facebook</a></li>
-                        <li><a class="text-muted" target="_blank" href="https://github.com/hsuanchi">GitHub</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md" style="text-align:center;">
-                    <img class="mb-2" src="/img/max.png" alt="max_icon" width="24" height="24">
-                    <small class="d-block mb-3 text-muted">© since 2018</small>
-                </div>
-            </div>
-        </div>
     </footer>
 
     <script type="text/javascript">
@@ -311,6 +288,7 @@
     <script src="/js/utils.js"> </script>
     <script src="/js/nav.js"> </script>
     <script src="/js/main.js"> </script>
+    <script src="/js/footer.js"> </script>
     <script src="/js/tracking.js"> </script>
     <script>
         const productNames = document.querySelectorAll('.productName');
@@ -320,6 +298,7 @@
         document.querySelector('.productPrice').textContent = "$ " + data.price;
         document.querySelector('.productImage').src = data.image;
     </script>
+
     <script>
         // 購物車按鈕
         $('.addToCart').on('click', function () {
@@ -359,50 +338,10 @@
             }
         })
     </script>
-    <script type="text/javascript">
-        // Product Impersion
-        var products = []
-        var product_gtag = []
-        dataLayer = window.dataLayer || [];
-        dataLayer.push({
-            'impression': {
-                'products': products
-            },
-            'event': 'td_impressionParse'
-        });
-        console.log('[Impersion_dataLayer]:', dataLayer)
-
-        // Product Detail
-        dataLayer.push({
-            'ecommerce': {
-                'detail': {
-                    'products': [{
-                        'id': 'V0j1F2yCTw0tQLzAoAQY',
-                        'name': 'Dennis',
-                        'category': '-',
-                        'price': '9999',
-                        'brand': 'TuringDigital',
-                        'variant': '-'
-                    }]
-                }
-            },
-            'event': 'td_productDetail'
-        });
-    </script>
-
 
     <!-- bootstrap.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-
-    <!-- 使用axios.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script>
-        const csrf = 'IjM1YzI1NTRmYTVlMjg1MjA4M2MwM2NiMDg5MzkzYzE4ZWVlZTBhNDAi.ZCalgw.woR6dtJc1Epoxa9QzBZhdWr_uW0';
     </script>
 
 </body>

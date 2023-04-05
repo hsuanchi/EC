@@ -48,19 +48,6 @@
         })(window, document, 'script', 'dataLayer', 'GTM-K2RGDH9');
     </script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146071245-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-179293716-1');
-        gtag('config', 'G-HNQE8NLGMY');
-    </script>
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat:black" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -76,8 +63,6 @@
     </script>
 
     <link rel="stylesheet" type="text/css" href="/css/layout.css">
-
-
 </head>
 
 <body>
@@ -142,7 +127,6 @@
                         <label for="">Password</label>
                         <input type="password" id="loginPassword" class="form-control" placeholder=""
                             aria-describedby="helpId" minlength="6" required>
-                        <!-- <small id="helpId" class="text-muted">minlength 6</small> -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -304,154 +288,13 @@
     <script src="/js/utils.js"> </script>
     <script src="/js/nav.js"> </script>
     <script src="/js/main.js"> </script>
-    <script type="text/javascript">
-        // Check Out
-        var check_products = []
-        ''
-
-        check_products.push({
-            'id': 'puAEH7J1GmprJoPPnRDH',
-            'name': 'GM',
-            'category': '-',
-            'price': String('2900'),
-            'brand': 'TuringDigital',
-            'variant': '-',
-            'quantity': parseInt('1')
-        })
-        ''
-        dataLayer.push({
-            'ecommerce': {
-                'checkout': {
-                    'step': 2,
-                    'products': check_products
-                },
-            },
-            'event': 'td_checkout_step'
-        });
-
-        gtag('event', 'checkout_progress', {
-            "items": check_products,
-            "coupon": ""
-        });
-        console.log('[CheckOut_dataLayer]:', dataLayer)
-    </script>
-
-
+    <script src="/js/tracking.js"> </script>
 
     <!-- bootstrap.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <!-- 使用axios.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-
-    <script>
-        function sendProductClickDataLayer(price, id, name, page) {
-            // Product Click
-            dataLayer.push({
-                'ecommerce': {
-                    'click': {
-                        'products': [{
-                            'id': id,
-                            'name': name,
-                            'category': '-',
-                            'price': price,
-                            'brand': 'TuringDigital',
-                            'variant': '-',
-                            'position': '1',
-                            'list': page
-                        }]
-                    }
-                },
-                'event': 'td_productClick'
-            });
-
-            gtag('event', 'select_content', {
-                "content_type": "product",
-                "items": [{
-                    "id": id,
-                    "name": name,
-                    "list_name": "Search Results",
-                    "brand": "TuringDigital",
-                    "category": "產品類別",
-                    "variant": "範例規格",
-                    "list_position": 1,
-                    "quantity": 1,
-                    "price": String(price)
-                }]
-            });
-            console.log('[productClick_dataLayer]:', dataLayer)
-        }
-
-        function sendAddToCarDataLayer(id, name, price, quantity) {
-            // Add To Cart
-            dataLayer.push({
-                'addToCart': {
-                    'products': [{
-                        'id': id,
-                        'name': name,
-                        'category': '-',
-                        'price': parseInt(price),
-                        'brand': 'TuringDigital',
-                        'variant': '-',
-                        'quantity': parseInt(quantity),
-                    }]
-                },
-                'event': 'td_AddToCart'
-            });
-
-            gtag('event', 'add_to_cart', {
-                "items": [{
-                    "id": id,
-                    "name": name,
-                    "list_name": "list_name ProductAddtoCart",
-                    "brand": "TuringDigital",
-                    "category": "新品推薦",
-                    "variant": "範例規格",
-                    "list_position": 1,
-                    "quantity": parseInt(quantity),
-                    "price": String(price)
-                }]
-            });
-            console.log('[addToCart_dataLayer]:', dataLayer)
-        }
-
-        function sendremoveCarDataLayer(id, name, price, quantity) {
-            // remove To Cart
-            dataLayer.push({
-                'remove': {
-                    'products': [{
-                        'id': id,
-                        'name': name,
-                        'category': '-',
-                        'price': parseInt(price),
-                        'brand': 'TuringDigital',
-                        'variant': '-',
-                        'quantity': parseInt(quantity)
-                    }]
-                },
-                'event': 'td_removeFromCart'
-            });
-            gtag('event', 'remove_from_cart', {
-                "items": [{
-                    "id": id,
-                    "name": name,
-                    "list_name": "範例類別",
-                    "brand": "TuringDigital",
-                    "category": "範例類別",
-                    "variant": "範例規格",
-                    "list_position": 1,
-                    "quantity": parseInt(quantity),
-                    "price": String(price)
-                }]
-            });
-            console.log('[remove_dataLayer]:', dataLayer)
-        }
-    </script>
 </body>
 
 </html>

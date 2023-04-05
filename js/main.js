@@ -1,39 +1,7 @@
 // 交易函數
 function purchase(event) {
-    console.log('Start purchase');
     // 取消瀏覽器重整畫面的行為
     event.preventDefault();
-    // 取得填寫Email, 密碼
-    const data = getCartItems()
-    console.log(data);
-    // var length_list = response['data']['shopping_list'].length
-    // var purchase_list = []
-    // var subtotal = 0
-    // for (i = 0; i < data.length; i++) {
-    //     purchase_list.push({
-    //         "id": data[i]['id'],
-    //         "name": data[i]['name'],
-    //         "category": "-",
-    //         "brand": "MaxLab",
-    //         "price": parseInt(data[i]['price']),
-    //         "quantity": parseInt(data[i]['quantity'])
-    //     })
-    //     subtotal += parseInt(data[i]['price']) * parseInt(data[i]['quantity'])
-    // }
-    // // 訂單完成  
-    // dataLayer = window.dataLayer || [];
-    // dataLayer.push({
-    //     'purchase': {
-    //         'id': "001",
-    //         'revenue': subtotal,
-    //         'tax': 0,
-    //         'shipping': 0,
-    //         'coupon': '',
-    //         'products': purchase_list
-    //     },
-    //     'event': 'td_purchaseComplete'
-    // });
-
     Swal.fire({
         title: '交易完成',
         text: 'success',
