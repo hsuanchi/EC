@@ -5,17 +5,13 @@
 
 ## Datalayer
 
-- [ ] view_item
-- [ ] view_item_list
+- [x] view_item
 - [x] add_to_cart
 - [x] remove_from_cart
-- [x] view_cart
 - [x] begin_checkout
 - [x] add_shipping_info
 - [x] add_payment_info
 - [x] purchase
-
-- [ ] op footer
 
 * [Google Document](https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#view_item_list)
 * [Google EC](https://enhancedecommerce.appspot.com/#!GA-homepage-f6be8-2:ga4Gtm)

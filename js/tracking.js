@@ -12,6 +12,7 @@ function sendProductClickDataLayer(price, id, name, page) {
             }]
         }
     });
+    console.log("select_item: ", JSON.stringify(dataLayer.filter(item => item.event === 'select_item')))
 };
 
 function sendAddToCarDataLayer(id, name, price, quantity) {
@@ -31,6 +32,7 @@ function sendAddToCarDataLayer(id, name, price, quantity) {
             }]
         }
     });
+    console.log("add_to_cart: ", JSON.stringify(dataLayer.filter(item => item.event === 'add_to_cart')))
 };
 
 function sendremoveCarDataLayer(id, name, price, quantity) {
@@ -50,16 +52,36 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
             }]
         }
     });
+    console.log("remove_from_cart: ", JSON.stringify(dataLayer.filter(item => item.event === 'remove_from_cart')))
 };
 
 (function () {
+    //sendView_item
+    if (location.pathname.includes("/product/")) {
+        dataLayer.push({
+            event: "view_item",
+            ecommerce: {
+                currency: "NTD",
+                value: data.price,
+                items: [{
+                    item_id: data.id,
+                    item_name: data.name,
+                    item_brand: "MaxLab",
+                    item_category: "-",
+                    price: data.price,
+                    quantity: 1
+                }]
+            }
+        });
+        console.log("view_item: ", JSON.stringify(dataLayer.filter(item => item.event === 'view_item')))
+    };
+
     //sendBeginCheckout
     if (location.pathname.includes("/cart")) {
         const data = getCartItems()
         itemsList = []
         subtotal = 0
         for (i = 0; i < data.length; i++) {
-            console.log()
             itemsList.push({
                 item_id: data[i].id,
                 item_name: data[i].name,
@@ -78,7 +100,7 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
                 items: itemsList
             }
         });
-        console.log("begin_checkout: ", dataLayer)
+        console.log("begin_checkout: ", JSON.stringify(dataLayer.filter(item => item.event === 'begin_checkout')))
     };
 
     //sendPaymentInfo
@@ -87,7 +109,6 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
         itemsList = []
         subtotal = 0
         for (i = 0; i < data.length; i++) {
-            console.log()
             itemsList.push({
                 item_id: data[i].id,
                 item_name: data[i].name,
@@ -106,7 +127,7 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
                 items: itemsList
             }
         });
-        console.log("add_payment_info: ", dataLayer)
+        console.log("add_payment_info: ", JSON.stringify(dataLayer.filter(item => item.event === 'add_payment_info')))
     };
 
     //purchase
@@ -116,7 +137,6 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
         itemsList = []
         subtotal = 0
         for (i = 0; i < data.length; i++) {
-            console.log()
             itemsList.push({
                 item_id: data[i].id,
                 item_name: data[i].name,
@@ -137,6 +157,6 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
                 items: itemsList
             }
         });
-        console.log("purchase: ", dataLayer)
+        console.log("purchase: ", JSON.stringify(dataLayer.filter(item => item.event === 'purchase')))
     };
 })();

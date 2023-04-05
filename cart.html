@@ -277,7 +277,6 @@
                     image,
                     id,
                 } = cart[i];
-                console.log(name, price, quantity, image, id)
 
                 const tr = document.createElement('tr');
 
@@ -333,7 +332,6 @@
                 tbody.appendChild(tr);
 
                 subtotal += price * quantity;
-                console.log(subtotal)
             }
 
             subtotal_str = subtotal.toString().replace(/(?!^)(?=(\d{3})+($|\.))/g, ",");
