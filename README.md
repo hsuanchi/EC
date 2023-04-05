@@ -1,8 +1,3 @@
-## Todolist
-
-- [ ] datalayer
-- [ ] pdp page
-
 ## Datalayer
 
 - [x] view_item
@@ -13,10 +8,8 @@
 - [x] add_payment_info
 - [x] purchase
 
-* [Google Document](https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#view_item_list)
-* [Google EC](https://enhancedecommerce.appspot.com/#!GA-homepage-f6be8-2:ga4Gtm)
-* [A typical ecommerce implementation measures any of the following actions:](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)
 
+## Document
 - view_item_list
 - view_item
 - add_to_cart
@@ -49,3 +42,9 @@
 - spend_virtual_currency
 - tutorial_complete
 - unlock_achievement
+
+
+## Ref
+- [Google Document](https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#view_item_list)
+- [Google EC](https://enhancedecommerce.appspot.com/#!GA-homepage-f6be8-2:ga4Gtm)
+- [A typical ecommerce implementation measures any of the following actions:](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)
