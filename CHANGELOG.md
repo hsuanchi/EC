@@ -2,6 +2,8 @@
 
 ### Feat
 
+- **pdp**: add view_item datalayer
+- **pdp**: add pdp page
 - **index.html**: update datalayer for index
 - **init**: first version
 

@@ -289,7 +289,6 @@
                 tr.appendChild(imgTd);
 
                 const idTd = document.createElement('td');
-                // idTd.style.display = 'none';
                 idTd.classList.add('text-center');
                 idTd.textContent = id;
                 tr.appendChild(idTd);
@@ -322,6 +321,13 @@
                 removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
                 removeBtn.addEventListener('click', () => {
                     removeCartItem(name);
+                    sendremoveCarDataLayer(
+                        id,
+                        name,
+                        price,
+                        quantity,
+                        image
+                    )
                     renderCartTable();
                 });
                 removeTd.appendChild(removeBtn);
