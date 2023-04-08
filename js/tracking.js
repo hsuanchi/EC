@@ -20,7 +20,7 @@ function sendAddToCarDataLayer(id, name, price, quantity) {
     dataLayer.push({
         event: "add_to_cart",
         ecommerce: {
-            currency: "NTD",
+            currency: "TWD",
             value: parseInt(price) * parseInt(quantity),
             items: [{
                 item_id: id,
@@ -40,7 +40,7 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
     dataLayer.push({
         event: "remove_from_cart",
         ecommerce: {
-            currency: "NTD",
+            currency: "TWD",
             value: parseInt(price) * parseInt(quantity),
             items: [{
                 item_id: id,
@@ -61,7 +61,7 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
         dataLayer.push({
             event: "view_item",
             ecommerce: {
-                currency: "NTD",
+                currency: "TWD",
                 value: data.price,
                 items: [{
                     item_id: data.id,
@@ -95,7 +95,7 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
         dataLayer.push({
             event: "begin_checkout",
             ecommerce: {
-                currency: "NTD",
+                currency: "TWD",
                 value: subtotal,
                 items: itemsList
             }
@@ -122,7 +122,7 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
         dataLayer.push({
             event: "add_payment_info",
             ecommerce: {
-                currency: "NTD",
+                currency: "TWD",
                 value: subtotal,
                 items: itemsList
             }
@@ -153,7 +153,7 @@ function sendremoveCarDataLayer(id, name, price, quantity) {
                 transaction_id: transactionId,
                 value: subtotal,
                 shipping: 0,
-                currency: "NTD",
+                currency: "TWD",
                 items: itemsList
             }
         });
