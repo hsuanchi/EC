@@ -134,3 +134,19 @@ function signUp(event) {
     }
   })
 }
+
+// 回饋表單
+function feedback(event) {
+  // 取消瀏覽器重整畫面的行為
+  event.preventDefault();
+
+  Swal.fire({
+    title: '提交成功',
+    text: 'success',
+    type: 'success',
+    onClose: () => {
+      // 重整畫面
+      location.reload()
+    }
+  })
+}
